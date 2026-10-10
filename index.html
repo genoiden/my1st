@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="퇴근 후 10분, 작은 실험 하나를 직접 해보고 기록하는 수업용 가상 프로젝트 소개입니다.">
+  <title>퇴근 후 10분 실험실 | 작은 채널 실습</title>
+  <style>
+    :root{color-scheme:dark;--ink:#f3f7ff;--muted:#a9bdd7;--night:#030b19;--line:#345477;--blue:#1877fa}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 50% 26%,#0d2e59 0,transparent 46%),linear-gradient(#030b19,#061326 70%,#030b19);color:var(--ink);font-family:system-ui,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;font-size:17px;line-height:1.7}
+    a{color:inherit}
+    .wrap{width:min(1420px,100% - 56px);margin-inline:auto}
+    .topbar{position:relative;z-index:5;padding:17px 0;border-bottom:1px solid #a5cbff20;font-size:13px;color:#c1d3ea;letter-spacing:.07em}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .topbar strong{color:#f4f7ff;letter-spacing:.1em}
+    .topnav{display:flex;gap:clamp(18px,3vw,42px);font-size:11px;letter-spacing:.16em}
+    .topnav a{text-decoration:none;color:#b1c4de}
+    .topnav a:hover{color:#fff}
+    .hero{position:relative;isolation:isolate;min-height:clamp(820px,calc(100svh - 58px),940px);overflow:hidden;padding:1px clamp(22px,4vw,56px)}
+    .hero:before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 50% 61%,#1b73d34c 0,transparent 43%),linear-gradient(180deg,transparent 62%,#07162a 100%);pointer-events:none}
+    .hero:after{content:"";position:absolute;z-index:-1;left:-10%;right:-10%;bottom:0;height:26%;background:linear-gradient(180deg,transparent,#0a1c32 52%,#04101e);border-top:1px solid #80bbff20;transform:perspective(400px) rotateX(4deg);pointer-events:none}
+    .hero-copy{display:contents}
+    .eyebrow{position:absolute;z-index:4;top:28px;left:0;display:inline-flex;align-items:center;gap:9px;padding:5px 0;color:#b5d3fb;font-size:12px;font-weight:750;letter-spacing:.12em}
+    .eyebrow:before{content:"";width:6px;height:6px;border-radius:50%;background:#6eaaff;box-shadow:0 0 13px #61a5ff}
+    h1{position:absolute;z-index:2;top:clamp(84px,10vh,112px);left:50%;width:100%;transform:translateX(-50%);margin:0;text-align:center;font-size:clamp(76px,11.4vw,166px);line-height:.83;letter-spacing:-.085em;word-break:keep-all;text-shadow:0 5px 48px #061326;text-wrap:balance}
+    .subtitle{position:absolute;z-index:4;top:59%;right:0;width:min(220px,17%);margin:0;color:#9bc6ff;font-size:clamp(18px,2vw,25px);font-weight:700;line-height:1.45;word-break:keep-all}
+    .intro{position:absolute;z-index:4;top:53%;left:0;width:min(255px,20%);margin:0;color:#bbcadc;font-size:15px;line-height:1.8;word-break:keep-all}
+    .hero-actions{position:absolute;z-index:4;top:72%;left:0;display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin:0}
+    .button{display:inline-flex;min-height:52px;align-items:center;justify-content:center;gap:12px;padding:10px 22px;border:1px solid #368cff;border-radius:999px;background:#2178f2;color:#fff;font:inherit;font-size:14px;font-weight:750;text-decoration:none;cursor:pointer;box-shadow:0 8px 28px #0863e455;transition:background .2s,transform .2s,box-shadow .2s}
+    .button:hover{background:#4491ff;transform:translateY(-2px);box-shadow:0 10px 34px #0863e477}
+    .button:focus-visible{outline:3px solid #c3ddff;outline-offset:4px}
+    .note{max-width:255px;font-size:13px;color:#93a9c5;line-height:1.55}
+    .art-frame{position:absolute;z-index:3;left:50%;bottom:17px;width:clamp(260px,27vw,390px);margin:0;transform:translateX(-50%) rotate(-3deg);filter:drop-shadow(0 35px 38px #000b)}
+    .art-frame:before{content:"";position:absolute;z-index:2;left:-34%;top:45%;width:168%;height:28%;border:2px solid #82bbff;border-radius:50%;transform:rotate(-20deg);box-shadow:0 0 14px #65aaff,0 0 36px #2178f299;pointer-events:none}
+    .art-frame:after{content:"수업용 가상 실습";position:absolute;z-index:4;right:11px;bottom:11px;padding:4px 9px;border:1px solid #ffffff35;border-radius:999px;background:#061326dc;color:#edf5ff;font-size:10px;letter-spacing:.08em}
+    .art-frame img{position:relative;z-index:1;display:block;width:100%;height:auto;max-height:590px;object-fit:contain;border:1px solid #a8cdff64;border-radius:3px;box-shadow:0 0 45px #236ed844}
+    .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .section{padding:clamp(58px,7vw,90px) 0;border-top:1px solid #b9d5f21a}
+    .section-kicker{margin:0 0 11px;color:#80b8ff;font-size:11px;font-weight:800;letter-spacing:.17em}
+    h2{margin:0;font-size:clamp(32px,4.6vw,54px);line-height:1.18;letter-spacing:-.05em;word-break:keep-all;text-wrap:balance}
+    .section-lead{max-width:760px;margin:17px 0 0;color:var(--muted);word-break:keep-all}
+    .preview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:34px}
+    .preview{min-height:174px;padding:21px;border:1px solid #6e9fd147;border-radius:10px;background:linear-gradient(145deg,#0e213aee,#08172bee);box-shadow:inset 0 1px #ffffff0c}
+    .preview span{display:block;margin-bottom:15px;color:#91c1ff;font-size:11px;font-weight:800;letter-spacing:.14em}
+    .preview h3{margin:0 0 8px;font-size:18px;line-height:1.4;word-break:keep-all}
+    .preview p{margin:0;color:#aebfd4;font-size:14px;word-break:keep-all}
+    .book-content{padding:clamp(23px,4.5vw,52px);border:1px solid #6e9fd147;border-radius:10px;background:linear-gradient(145deg,#0d2038,#071426);box-shadow:0 24px 70px #0004}
+    .book-content[hidden]{display:none}
+    .book-toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px;margin:26px 0 40px;padding:22px 24px;border:1px solid #ffffff18;border-radius:8px;background:#ffffff08}
+    .book-toc a{text-decoration:none;color:#aed0ff;font-weight:650}
+    .book-toc a:hover{text-decoration:underline;color:#fff}
+    .chapter{padding:31px 0;border-top:1px solid #ffffff1b;scroll-margin-top:24px}
+    .chapter:first-of-type{border-top:0}
+    .chapter h3{margin:0 0 13px;color:#f5f8ff;font-size:clamp(22px,3vw,30px);line-height:1.38;word-break:keep-all}
+    .chapter p{max-width:820px;margin:9px 0;color:#c0cee0;word-break:keep-all}
+    .chapter ul{padding-left:1.25em;color:#c0cee0}
+    .chapter li{margin:10px 0}
+    .chapter li strong{color:#f0f5ff}
+    .callout{max-width:820px;margin:18px 0;padding:16px 19px;border-left:2px solid #75b2ff;background:#ffffff08;color:#e0eafa;word-break:keep-all}
+    .practice{position:relative;overflow:hidden;margin:0 0 74px;padding:clamp(29px,5.5vw,62px);border:1px solid #80b8ff48;border-radius:10px;background:radial-gradient(ellipse at 100% 0,#2a78cf55,transparent 45%),linear-gradient(125deg,#102b4c,#0b1b30);color:#fff}
+    .practice .section-kicker{color:#9cc8ff}
+    .practice h2{font-size:clamp(32px,5vw,58px)}
+    .practice p{max-width:760px;margin:18px 0 0;color:#d8e6f8;font-size:clamp(18px,2.3vw,23px);word-break:keep-all}
+    footer{padding:24px 0 38px;border-top:1px solid #ffffff1b;color:#91a6c1;font-size:13px}
+    @media(max-width:850px){.wrap{width:min(100% - 36px,700px)}.topnav{gap:17px;font-size:10px}.hero{min-height:820px}.hero:after{height:23%}.hero h1{font-size:clamp(76px,12vw,112px)}.art-frame{width:clamp(250px,37vw,360px)}.intro{width:205px}.subtitle{width:180px}.preview-grid{gap:10px}.preview{padding:17px}}
+    @media(max-width:620px){body{font-size:16px}.wrap{width:calc(100% - 30px)}.topbar{padding:13px 0}.topbar-inner{align-items:flex-start;flex-direction:column;gap:8px}.topnav{gap:20px;font-size:10px}.hero{display:flex;min-height:0;overflow:visible;flex-direction:column;align-items:stretch;gap:26px;padding:39px 15px 48px}.hero:before{inset:0 -20px 15%;background:radial-gradient(ellipse at 50% 72%,#1b73d34c 0,transparent 60%)}.hero:after{height:20%}.hero-copy{display:flex;width:100%;flex-direction:column;align-items:flex-start}.eyebrow,.subtitle,.intro,.hero-actions,.art-frame,h1{position:static;left:auto;top:auto;right:auto;bottom:auto;transform:none;width:auto;max-width:none}.eyebrow{order:0}.hero h1{order:1;margin:22px 0 0;text-align:left;font-size:clamp(57px,14.5vw,88px);line-height:.93;letter-spacing:-.08em}.subtitle{order:2;margin-top:13px;font-size:21px}.intro{order:3;margin-top:17px;font-size:15px}.hero-actions{order:4;align-items:stretch;width:100%;margin-top:20px}.button{width:100%;min-height:56px}.note{max-width:none}.art-frame{order:5;position:relative;align-self:center;width:min(77%,340px);margin:0 auto 8px;transform:rotate(-2deg)}.art-frame img{max-height:none}.art-frame:before{left:-19%;width:138%;height:21%}.art-frame:after{right:8px;bottom:8px;font-size:9px}.section{padding:49px 0}.preview-grid{grid-template-columns:1fr;gap:10px;margin-top:24px}.preview{min-height:0;padding:19px}.preview span{margin-bottom:8px}.book-content{padding:20px}.book-toc{grid-template-columns:1fr;padding:17px;gap:8px}.chapter{padding:25px 0}.practice{margin-bottom:48px;padding:27px 21px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar"><div class="wrap topbar-inner"><strong>퇴근 후 작은 실험 기록</strong><nav class="topnav" aria-label="페이지 메뉴"><a href="#about-title">프로젝트 소개</a><a href="#reading-title">미니북</a><a href="#practice-title">오늘 해보기</a></nav></div></header>
+  <main>
+    <section class="hero wrap" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <span class="eyebrow">수업용 가상 프로젝트</span>
+        <h1 id="page-title">퇴근 후<br>10분 실험실</h1>
+        <p class="subtitle">첫 영상 세 편으로 시작하는 작은 채널</p>
+        <p class="intro">큰 장비 없이도 퇴근 후 작은 실험 하나를 기록합니다. 일상에서 궁금했던 일을 직접 해보고, 과정과 느낀 점을 짧게 나누는 프로젝트입니다.</p>
+        <div class="hero-actions">
+          <button class="button" id="read-button" type="button" aria-expanded="false" aria-controls="book-body">미니북 펼쳐 읽기 <span aria-hidden="true">↓</span></button>
+          <span class="note">짧은 실험 한 편에서 오늘 해볼 일을 하나 골라보세요.</span>
+        </div>
+      </div>
+      <figure class="art-frame"><img src="assets/미니북-3D-목업.png" alt="달빛 아래 궁전과 책상 위 노트북, 카메라가 그려진 미니북이 서 있는 모습"><figcaption class="visually-hidden">퇴근 후 10분 실험실의 3D 책 목업</figcaption></figure>
+    </section>
+
+    <section class="section" aria-labelledby="about-title">
+      <div class="wrap">
+        <p class="section-kicker">프로젝트 소개</p>
+        <h2 id="about-title">오늘 바로 해볼 수 있는<br>작은 행동 하나</h2>
+        <p class="section-lead">무언가 시작하고 싶지만 준비만 하다가 하루를 보내는 사람을 위한 가상 실습입니다. 구독자 수보다 시청자가 얻을 경험을 먼저 생각하고, 직접 해본 과정과 느낀 점을 나눕니다.</p>
+        <div class="preview-grid" aria-label="첫 영상 아이디어 세 가지">
+          <article class="preview"><span>실험 01</span><h3>책상 위 물건 세 개만 남기기</h3><p>자주 쓰는 물건을 고르고 나머지는 옆 상자에 넣어봅니다.</p></article>
+          <article class="preview"><span>실험 02</span><h3>스마트폰을 내려놓고 창밖 보기</h3><p>잠깐 스마트폰을 내려놓고 창밖 풍경을 관찰합니다.</p></article>
+          <article class="preview"><span>실험 03</span><h3>냉장고 재료 세 가지로 간식 만들기</h3><p>재료 세 가지를 골라 간단한 간식을 만들고 느낌을 나눕니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reading" aria-labelledby="reading-title">
+      <div class="wrap">
+        <p class="section-kicker">미니북 본문</p>
+        <h2 id="reading-title">작은 질문에서 시작하는 다섯 장</h2>
+        <p class="section-lead">버튼을 눌러 원고의 본문을 펼쳐 읽을 수 있습니다.</p>
+        <article class="book-content" id="book-body" hidden>
+          <p><strong>머리말</strong><br>큰 장비 없이도 퇴근 후 작은 실험 하나를 기록할 수 있습니다. 일상에서 궁금했던 일을 직접 해보고, 과정과 느낀 점을 짧게 나누는 수업용 가상 프로젝트입니다.</p>
+          <nav class="book-toc" aria-label="미니북 목차">
+            <a href="#chapter-1">1. 누구에게 보여줄까</a><a href="#chapter-2">2. 첫 영상 세 편</a>
+            <a href="#chapter-3">3. 첫 영상 대본</a><a href="#chapter-4">4. 썸네일과 제목</a>
+            <a href="#chapter-5">5. 다음 한 편을 이어가기</a>
+          </nav>
+          <section class="chapter" id="chapter-1"><h3>1. 누구에게 보여줄까</h3><p>퇴근 후 남은 에너지가 많지 않은 사람을 떠올려봅니다. 거창한 도전 대신 오늘 바로 해볼 수 있는 행동 하나를 건네면 좋겠습니다.</p><p>채널을 소개할 때는 구독자 수보다 시청자가 얻을 경험을 먼저 설명합니다.</p><div class="callout"><strong>한 문장 소개</strong><br>퇴근 후 10분, 궁금했던 일을 직접 해보는 채널입니다.</div></section>
+          <section class="chapter" id="chapter-2"><h3>2. 첫 영상 세 편</h3><ul><li><strong>책상 위 물건 세 개만 남기기</strong> — 자주 쓰는 물건을 고르고 나머지는 옆 상자에 넣어봅니다.</li><li><strong>스마트폰을 내려놓고 창밖 보기</strong> — 스마트폰을 잠깐 내려놓고 창밖 풍경을 관찰합니다.</li><li><strong>냉장고 재료 세 가지로 간식 만들기</strong> — 재료 세 가지를 골라 간단한 간식을 만들고 느낌을 나눕니다.</li></ul><p><strong>공통 형식:</strong> 궁금한 점 → 해보는 장면 → 예상과 달랐던 점</p><div class="callout">예시 이미지는 실제 채널 화면이 아닌 수업용 그림입니다.</div></section>
+          <section class="chapter" id="chapter-3"><h3>3. 첫 영상 대본</h3><p><strong>도입:</strong> 퇴근하면 아무것도 하기 싫어서, 오늘은 책상 위 물건을 세 개만 남겨보겠습니다.</p><p><strong>과정:</strong> 손이 자주 가는 물건을 골라 나머지는 옆 상자에 넣습니다. 책상을 사용하는 모습을 짧게 찍습니다.</p><p><strong>마무리:</strong> 정리가 잘됐다는 말보다 사용하면서 달라진 점을 한 가지 말합니다.</p><p><strong>마지막 질문:</strong> 여러분이라면 무엇 세 개를 남기겠어요?</p><div class="callout">예시 이미지는 실제 촬영 장면이 아닌 촬영 환경을 표현한 그림입니다.</div></section>
+          <section class="chapter" id="chapter-4"><h3>4. 썸네일과 제목</h3><p>썸네일에는 정리 전후 사진을 한 장씩 놓고 제목은 짧게 적습니다.</p><p>영상에서 실제로 보여주는 내용과 제목을 맞춥니다. 결과가 예상과 달라도 그 과정이 이야기의 재료가 됩니다.</p><div class="callout"><strong>제목 예시:</strong> 「책상 위에 딱 세 개만 남겨봤다」<br><strong>촬영 재료:</strong> 책상 사진, 손이 움직이는 장면, 정리 후 전체 모습.</div></section>
+          <section class="chapter" id="chapter-5"><h3>5. 다음 한 편을 이어가기</h3><p>첫 공개 후에는 반응을 살펴 다음 실험의 질문을 고릅니다. 조회수를 보장하는 공식 대신 계속 찍을 수 있는 소재와 형식을 찾아봅니다.</p><p>이번 주에는 영상 하나를 끝까지 만들고, 다음에 바꾸고 싶은 점을 기록해봅니다.</p><div class="callout"><strong>오늘의 완료:</strong> 채널 소개 한 문장, 첫 세 편의 제목, 첫 영상 대본</div></section>
+          <section class="chapter"><h3>마무리</h3><p>짧은 실험 한 편을 보고 오늘 직접 해볼 일을 하나 고릅니다. 작은 질문 하나에서 시작해도 괜찮습니다.</p></section>
+        </article>
+      </div>
+    </section>
+
+    <section class="practice wrap" aria-labelledby="practice-title">
+      <p class="section-kicker">오늘의 실천</p>
+      <h2 id="practice-title">오늘 한 가지 해보기</h2>
+      <p>책상에서 자주 쓰는 물건 세 개를 골라 남기고, 나머지는 잠시 옆 상자에 넣어보세요.</p>
+    </section>
+  </main>
+  <footer><div class="wrap">이 페이지는 제공된 미니북 원고를 바탕으로 만든 수업용 가상 프로젝트 소개입니다.</div></footer>
+  <script>
+    const readButton = document.getElementById('read-button');
+    const bookBody = document.getElementById('book-body');
+    readButton.addEventListener('click', () => {
+      const isOpening = bookBody.hidden;
+      bookBody.hidden = !isOpening;
+      readButton.setAttribute('aria-expanded', String(isOpening));
+      readButton.innerHTML = isOpening
+        ? '미니북 접기 <span aria-hidden="true">↑</span>'
+        : '미니북 펼쳐 읽기 <span aria-hidden="true">↓</span>';
+    });
+  </script>
+</body>
+</html>
+
